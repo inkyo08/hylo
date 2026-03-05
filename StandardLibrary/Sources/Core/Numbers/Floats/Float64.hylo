@@ -128,3 +128,17 @@ public conformance Float64: Copyable {
   }
 
 }
+
+public conformance Float64: ForeignConvertible {
+
+  public typealias ForeignRepresentation = Builtin.float64
+
+  public init(foreign_value: sink Builtin.float64) {
+    &self.value = foreign_value
+  }
+
+  public fun foreign_value() -> Builtin.float64 {
+    value
+  }
+
+}
